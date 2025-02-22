@@ -736,3 +736,171 @@ Processing by ContainersController#index as */*
 Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 0.2ms)
 
 
+Started GET "/containers/4" for ::1 at 2025-02-22 18:38:35 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubuntu", "id"=>"4", "container"=>{"name"=>"Container_5", "image"=>"ubuntu"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 10ms (Views: 10.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/containers/3" for ::1 at 2025-02-22 18:38:43 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubuntu", "id"=>"3", "container"=>{"name"=>"Container_5", "image"=>"ubuntu"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers/2" for ::1 at 2025-02-22 18:38:50 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubuntu", "id"=>"2", "container"=>{"name"=>"Container_5", "image"=>"ubuntu"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers" for ::1 at 2025-02-22 18:38:55 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubuntu", "container"=>{"name"=>"Container_5", "image"=>"ubuntu"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.88ms)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers" for ::1 at 2025-02-22 18:40:23 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubuntu", "container"=>{"name"=>"Container_5", "image"=>"ubuntu"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.79ms)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 1.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers/4" for ::1 at 2025-02-22 18:40:29 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubuntu", "id"=>"4", "container"=>{"name"=>"Container_5", "image"=>"ubuntu"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:74:in `set_container'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/containers/4" for ::1 at 2025-02-22 18:44:18 -0300
+Processing by ContainersController#destroy as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubuntu", "id"=>"4", "container"=>{"name"=>"Container_5", "image"=>"ubuntu"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:74:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:58:in `destroy'
+  [1m[36mContainer Destroy (2.3ms)[0m  [1m[31mDELETE FROM "containers" WHERE "containers"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/containers_controller.rb:58:in `destroy'
+  [1m[36mTRANSACTION (153.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:58:in `destroy'
+Completed 204 No Content in 162ms (ActiveRecord: 155.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers" for ::1 at 2025-02-22 18:44:24 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubuntu", "container"=>{"name"=>"Container_5", "image"=>"ubuntu"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.65ms)
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/containers" for ::1 at 2025-02-22 18:50:53 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubuntu", "container"=>{"name"=>"Container_5", "image"=>"ubuntu"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:31:in `create'
+  [1m[36mContainer Exists? (3.6ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? LIMIT ?[0m  [["docker_id", "4b514ec91a20bc78c5a87f4ebcc2f9650c5469f3f213aef31fe2ea8f701fc0b8"], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:31:in `create'
+  [1m[36mContainer Create (0.2ms)[0m  [1m[32mINSERT INTO "containers" ("name", "image", "status", "created_at", "updated_at", "docker_id") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Container_5"], ["image", "ubuntu"], ["status", "running"], ["created_at", "2025-02-22 21:50:54.519396"], ["updated_at", "2025-02-22 21:50:54.519396"], ["docker_id", "4b514ec91a20bc78c5a87f4ebcc2f9650c5469f3f213aef31fe2ea8f701fc0b8"]]
+  ↳ app/controllers/containers_controller.rb:31:in `create'
+  [1m[36mTRANSACTION (106.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:31:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:37:in `create'
+  [1m[36mContainer Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "4b514ec91a20bc78c5a87f4ebcc2f9650c5469f3f213aef31fe2ea8f701fc0b8"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:37:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:37:in `create'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (1.29ms)
+Completed 200 OK in 936ms (Views: 5.5ms | ActiveRecord: 115.2ms (3 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/containers" for ::1 at 2025-02-22 19:09:04 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubuntu", "container"=>{"name"=>"Container_5", "image"=>"ubuntu"}}
+  [1m[36mContainer Load (0.9ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/containers" for ::1 at 2025-02-22 19:09:18 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_6", "image"=>"ubuntu", "container"=>{"name"=>"Container_6", "image"=>"ubuntu"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:32:in `create'
+  [1m[36mContainer Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? LIMIT ?[0m  [["docker_id", "d1b9e9c418c4f628854ffdb5e0966420762d855cbd3d0e52e7effc4b347361f2"], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:32:in `create'
+  [1m[36mContainer Create (0.2ms)[0m  [1m[32mINSERT INTO "containers" ("name", "image", "status", "created_at", "updated_at", "docker_id") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Container_6"], ["image", "ubuntu"], ["status", "running"], ["created_at", "2025-02-22 22:09:19.844010"], ["updated_at", "2025-02-22 22:09:19.844010"], ["docker_id", "d1b9e9c418c4f628854ffdb5e0966420762d855cbd3d0e52e7effc4b347361f2"]]
+  ↳ app/controllers/containers_controller.rb:32:in `create'
+  [1m[36mTRANSACTION (52.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:32:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:38:in `create'
+  [1m[36mContainer Exists? (4.9ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "d1b9e9c418c4f628854ffdb5e0966420762d855cbd3d0e52e7effc4b347361f2"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:38:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:38:in `create'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (1.02ms)
+Completed 200 OK in 1049ms (Views: 3.3ms | ActiveRecord: 60.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/containers/6" for ::1 at 2025-02-22 19:09:47 -0300
+Processing by ContainersController#destroy as */*
+  Parameters: {"name"=>"Container_6", "image"=>"ubuntu", "id"=>"6", "container"=>{"name"=>"Container_6", "image"=>"ubuntu"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:77:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:61:in `destroy'
+  [1m[36mContainer Destroy (2.5ms)[0m  [1m[31mDELETE FROM "containers" WHERE "containers"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/containers_controller.rb:61:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:61:in `destroy'
+Completed 204 No Content in 205ms (ActiveRecord: 2.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers" for ::1 at 2025-02-22 19:10:04 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"name"=>"Container_6", "image"=>"ubuntu", "container"=>{"name"=>"Container_6", "image"=>"ubuntu"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.61ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/containers/5" for ::1 at 2025-02-22 19:10:12 -0300
+Processing by ContainersController#destroy as */*
+  Parameters: {"name"=>"Container_6", "image"=>"ubuntu", "id"=>"5", "container"=>{"name"=>"Container_6", "image"=>"ubuntu"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:77:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:61:in `destroy'
+  [1m[36mContainer Destroy (2.9ms)[0m  [1m[31mDELETE FROM "containers" WHERE "containers"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/containers_controller.rb:61:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:61:in `destroy'
+Completed 204 No Content in 206ms (ActiveRecord: 3.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers" for ::1 at 2025-02-22 19:10:17 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"name"=>"Container_6", "image"=>"ubuntu", "container"=>{"name"=>"Container_6", "image"=>"ubuntu"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.56ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+

@@ -1,5 +1,5 @@
 class ContainersController < ApplicationController
-  #before_action :set_container, only: %i[ show update destroy]
+  before_action :set_container, only: %i[ show update destroy]
   require 'docker'
 
 
@@ -25,6 +25,7 @@ class ContainersController < ApplicationController
   def create
     container = Docker::Container.create(
       'Image'=> params[:image],
+      'name' => params[:name],
       'Cmd' => ['bash', '-c', 'while true; do sleep 10; done']
     )
 
@@ -55,6 +56,8 @@ class ContainersController < ApplicationController
 
   def destroy
     if @container
+      docker_container = Docker::Container.get(@container.docker_id)
+      docker_container.delete(:force => true)
       @container.destroy!
     else
       render json: {error: "Container not found!"}, status: 404
