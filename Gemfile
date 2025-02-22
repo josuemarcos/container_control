@@ -8,6 +8,8 @@ gem "sqlite3", ">= 1.4"
 gem "puma", ">= 5.0"
 # ActiveModel::Serializer implementation and Rails hooks
 gem 'active_model_serializers', '~> 0.10.0'
+# A lightweight Ruby client for the Docker Remote API
+gem 'docker-api'
 
 
 

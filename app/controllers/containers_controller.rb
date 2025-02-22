@@ -1,5 +1,6 @@
 class ContainersController < ApplicationController
-  before_action :set_container, only: %i[ show update destroy]
+  #before_action :set_container, only: %i[ show update destroy]
+  require 'docker'
 
 
   def index
@@ -7,7 +8,7 @@ class ContainersController < ApplicationController
     if container
       render json: container
     else
-      render json: { error: "Nenhum container encontrado" }, status: :not_found
+      render json: { error: "Nenhum container encontrado" }, status: 404
     end
   end
 
@@ -16,21 +17,30 @@ class ContainersController < ApplicationController
     if @container
       render json: @container
     else
-      render json: {error: "Contact not found"}
+      render json: {error: "Container not found"}
     end
-
   end
 
   
   def create
-    container = Container.new(container_params)
+    container = Docker::Container.create(
+      'Image'=> params[:image],
+      'Cmd' => ['bash', '-c', 'while true; do sleep 10; done']
+    )
 
-    if container.save!
-      render json: container, status: :created, location: container
+    @container = Container.create!(
+      name: params[:name],
+      image: params[:image],
+      docker_id: container.id,
+      status: 'running')
+
+    if @container.save!
+      render json: @container, status: 200
       
     else
-      render json: container.erros, status: :unprocessable_entity
+      render json: { error: "Container couldn't be created!" }, status: 422
     end
+
   end
 
   def update
@@ -38,7 +48,7 @@ class ContainersController < ApplicationController
     if @container.update(container_params)
       render json: @container
     else
-      render json: @container.errors, status: :unprocessable_entity
+      render json: @container.errors, status: 422
     end
     
   end
