@@ -1,5 +1,5 @@
 class ContainersController < ApplicationController
-  before_action :set_container
+  before_action :set_container, only: %i[ show update destroy]
 
 
   def index
@@ -42,6 +42,16 @@ class ContainersController < ApplicationController
     end
     
   end
+
+  def destroy
+    if @container
+      @container.destroy!
+    else
+      render json: {error: "Container not found!"}, status: 404
+    end
+  end
+
+
 
   private
 
