@@ -6,6 +6,11 @@ gem "rails", "~> 7.2.2", ">= 7.2.2.1"
 gem "sqlite3", ">= 1.4"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
+# ActiveModel::Serializer implementation and Rails hooks
+gem 'active_model_serializers', '~> 0.10.0'
+
+
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 # Use Redis adapter to run Action Cable in production

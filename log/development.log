@@ -317,3 +317,21 @@ Processing by ContainersController#update as */*
 Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.8ms (2 queries, 0 cached) | GC: 0.3ms)
 
 
+Started GET "/containers/1" for ::1 at 2025-02-21 22:02:21 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"name"=>"Test_Container", "id"=>"1", "container"=>{"name"=>"Test_Container"}}
+  [1m[36mContainer Load (1.3ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:54:in `set_container'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/containers/1" for ::1 at 2025-02-21 22:02:37 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ContainersController#show as */*
+  Parameters: {"name"=>"Test_Container", "id"=>"1", "container"=>{"name"=>"Test_Container"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:54:in `set_container'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.82ms)
+Completed 200 OK in 144ms (Views: 125.5ms | ActiveRecord: 2.1ms (1 query, 0 cached) | GC: 2.1ms)
+
+

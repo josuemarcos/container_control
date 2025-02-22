@@ -22,8 +22,6 @@ class ContainersController < ApplicationController
   end
 
   
-  
-
   def create
     container = Container.new(container_params)
 
@@ -36,6 +34,7 @@ class ContainersController < ApplicationController
   end
 
   def update
+
     if @container.update(container_params)
       render json: @container
     else
