@@ -1,5 +1,6 @@
 class ContainersController < ApplicationController
-  before_action :set_container, only: %i[ show update destroy]
+  before_action :set_container, only: %i[ show update destroy change_status]
+  before_action :set_docker_container, only: %i[destroy change_status]
   require 'docker'
 
 
@@ -23,17 +24,16 @@ class ContainersController < ApplicationController
 
   
   def create
-    container = Docker::Container.create(
-      'Image'=> params[:image],
-      'name' => params[:name],
-      'Cmd' => ['bash', '-c', 'while true; do sleep 10; done']
-    )
+  
+    container = Container.create_docker_container(params[:name], params[:image])
 
     @container = Container.create!(
       name: params[:name],
       image: params[:image],
       docker_id: container.id,
-      status: 'running')
+      status: 'stopped')
+
+    render json: @container, status: 200
 
     rescue ActiveRecord::RecordInvalid => e
       render json: {error: e.message}, status: 422
@@ -54,17 +54,51 @@ class ContainersController < ApplicationController
     
   end
 
+  def change_status
+
+    if params[:status].capitalize == "Start"
+      if check_container_status(@container)
+        render json: {error: "This container is already running!"}, status: 400
+        
+      else !check_container_status(@container)
+        @docker_container.start
+        @container[:status] = "Running"
+        render json: @container, status: 200
+      end
+      
+    elsif params[:status].capitalize == "Stop"
+      if check_container_status(@container)
+        @docker_container.stop
+        @container[:status] = "Stopped"
+        render json: @container, status: 200
+          
+      else !check_container_status(@container)
+        render json: {error: "This container is already stopped!"}, status: 400
+        
+      end
 
 
+    else 
+      render json: {error: "Invalid option!"}, status: 400
+
+    end
+
+    rescue Docker::Error::DockerError => e
+      render json: {error: e.message}, status: 422
+
+  end
+  
 
   def destroy
     if @container
-      docker_container = Docker::Container.get(@container.docker_id)
-      docker_container.delete(:force => true)
+      @docker_container.delete(:force => true)
       @container.destroy!
     else
       render json: {error: "Container not found!"}, status: 404
     end
+
+    rescue Docker::Error::DockerError => e
+      render json: {error: e.message}, status: 422
   end
 
 
@@ -78,8 +112,18 @@ class ContainersController < ApplicationController
 
   def set_container
     @container = Container.find(params[:id])
+  end
+
+  def set_docker_container
+    @docker_container = Docker::Container.get(@container.docker_id)
+  end
+
+  def check_container_status(container)
+    container[:status].capitalize == "Start" ? true : false
     
   end
+  
+  
   
   
   
