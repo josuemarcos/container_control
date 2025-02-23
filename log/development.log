@@ -1277,3 +1277,657 @@ Processing by ContainersController#update as */*
 Completed 200 OK in 13ms (Views: 1.0ms | ActiveRecord: 4.0ms (3 queries, 0 cached) | GC: 0.6ms)
 
 
+Started GET "/containers" for ::1 at 2025-02-23 15:52:20 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ContainersController#index as */*
+  Parameters: {"status"=>"start", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:10:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.23ms)
+Completed 200 OK in 125ms (Views: 75.2ms | ActiveRecord: 1.9ms (1 query, 0 cached) | GC: 1.7ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2025-02-23 15:54:58 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:02:18 -0300
+Processing by ContainersController#update as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (2.5ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:116:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:49:in `update'
+  [1m[36mContainer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "f26afa222cc9198e78ce8b8b4d468c4bbcb0d267b0c484ffecde6e5d076627df"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:49:in `update'
+  [1m[36mContainer Update (0.4ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "stop"], ["updated_at", "2025-02-23 19:02:19.198449"], ["id", 10]]
+  ↳ app/controllers/containers_controller.rb:49:in `update'
+  [1m[36mTRANSACTION (128.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:49:in `update'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.83ms)
+Completed 200 OK in 280ms (Views: 4.3ms | ActiveRecord: 137.1ms (3 queries, 0 cached) | GC: 3.9ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:03:46 -0300
+Processing by ContainersController#update as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:116:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:49:in `update'
+  [1m[36mContainer Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "f26afa222cc9198e78ce8b8b4d468c4bbcb0d267b0c484ffecde6e5d076627df"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:49:in `update'
+  [1m[36mContainer Update (0.1ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "start"], ["updated_at", "2025-02-23 19:03:46.850551"], ["id", 10]]
+  ↳ app/controllers/containers_controller.rb:49:in `update'
+  [1m[36mTRANSACTION (58.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:49:in `update'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 74ms (Views: 1.7ms | ActiveRecord: 61.9ms (3 queries, 0 cached) | GC: 0.9ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:06:11 -0300
+Processing by ContainersController#update as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:116:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:49:in `update'
+  [1m[36mContainer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "f26afa222cc9198e78ce8b8b4d468c4bbcb0d267b0c484ffecde6e5d076627df"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:49:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:49:in `update'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 12ms (Views: 1.3ms | ActiveRecord: 3.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:10:42 -0300
+Processing by ContainersController#update as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:91:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:49:in `update'
+  [1m[36mContainer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "f26afa222cc9198e78ce8b8b4d468c4bbcb0d267b0c484ffecde6e5d076627df"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:49:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:49:in `update'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 14ms (Views: 1.6ms | ActiveRecord: 3.2ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/containers" for ::1 at 2025-02-23 16:12:46 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"status"=>"start", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:10:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.64ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 1.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers/10" for ::1 at 2025-02-23 16:13:56 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:94:in `set_container'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 22ms (Views: 2.9ms | ActiveRecord: 1.9ms (1 query, 0 cached) | GC: 5.6ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2025-02-23 16:14:51 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [30 times] (Duration: 30.8ms | GC: 1.1ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.9ms | GC: 0.4ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 43.4ms | GC: 2.2ms)
+  Rendered layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb (Duration: 44.9ms | GC: 2.2ms)
+Completed 200 OK in 80ms (Views: 48.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 3.1ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:15:07 -0300
+Processing by ContainersController#update as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.3ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:89:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:52:in `update'
+  [1m[36mContainer Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "f26afa222cc9198e78ce8b8b4d468c4bbcb0d267b0c484ffecde6e5d076627df"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:52:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:52:in `update'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 14ms (Views: 1.7ms | ActiveRecord: 3.6ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:15:49 -0300
+Processing by ContainersController#update as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 1.1ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/containers_controller.rb:52:in `update'
+Started GET "/rails/info/routes" for ::1 at 2025-02-23 16:17:07 -0300
+  
+SyntaxError (/home/josue/Documentos/Programming/container_control/config/routes.rb:3: syntax error, unexpected local variable or method, expecting `end' or dummy end
+  resources :containers only: %i[get destroy]
+                        ^~~~
+):
+  
+config/routes.rb:3: syntax error, unexpected local variable or method, expecting `end' or dummy end
+Started GET "/rails/info/routes" for ::1 at 2025-02-23 16:17:23 -0300
+  
+SyntaxError (/home/josue/Documentos/Programming/container_control/config/routes.rb:3: syntax error, unexpected local variable or method, expecting `end' or dummy end
+  resources :containers only: %i[get delete]
+                        ^~~~
+):
+  
+config/routes.rb:3: syntax error, unexpected local variable or method, expecting `end' or dummy end
+Started GET "/rails/info/routes" for ::1 at 2025-02-23 16:17:33 -0300
+  
+SyntaxError (/home/josue/Documentos/Programming/container_control/config/routes.rb:3: syntax error, unexpected local variable or method, expecting `end' or dummy end
+  resources :containers only: %i[get]
+                        ^~~~
+):
+  
+config/routes.rb:3: syntax error, unexpected local variable or method, expecting `end' or dummy end
+Started GET "/rails/info/routes" for ::1 at 2025-02-23 16:17:57 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [24 times] (Duration: 10.2ms | GC: 0.7ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 16.2ms | GC: 0.7ms)
+  Rendered layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb (Duration: 17.0ms | GC: 0.7ms)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2025-02-23 16:18:20 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [24 times] (Duration: 6.9ms | GC: 0.4ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 10.0ms | GC: 0.4ms)
+  Rendered layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb (Duration: 10.6ms | GC: 0.4ms)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2025-02-23 16:18:22 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [24 times] (Duration: 45.5ms | GC: 1.4ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 58.0ms | GC: 1.4ms)
+  Rendered layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb (Duration: 58.9ms | GC: 1.4ms)
+Completed 200 OK in 61ms (Views: 60.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2025-02-23 16:18:22 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [24 times] (Duration: 17.3ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 22.0ms | GC: 0.0ms)
+  Rendered layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb (Duration: 22.8ms | GC: 0.0ms)
+Completed 200 OK in 24ms (Views: 23.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2025-02-23 16:18:22 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [24 times] (Duration: 10.0ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 11.9ms | GC: 0.0ms)
+  Rendered layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb (Duration: 12.2ms | GC: 0.0ms)
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2025-02-23 16:18:22 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [24 times] (Duration: 31.6ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 39.0ms | GC: 0.0ms)
+  Rendered layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb (Duration: 39.8ms | GC: 0.0ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2025-02-23 16:18:32 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [30 times] (Duration: 11.7ms | GC: 0.6ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 17.0ms | GC: 0.8ms)
+  Rendered layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb (Duration: 19.3ms | GC: 0.8ms)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2025-02-23 16:20:32 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [28 times] (Duration: 8.9ms | GC: 0.5ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 14.2ms | GC: 0.9ms)
+  Rendered layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb (Duration: 15.7ms | GC: 0.9ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.9ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:20:58 -0300
+  
+ActionController::RoutingError (uninitialized constant ContainerController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant ContainerController)
+NameError (uninitialized constant ContainerController)
+  
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:24:12 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+Completed 204 No Content in 0ms (ActiveRecord: 5.7ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers" for ::1 at 2025-02-23 16:24:46 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"status"=>"start", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:10:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.04ms)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 1.4ms (1 query, 0 cached) | GC: 4.2ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:25:05 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method `docker_id' for nil:NilClass):
+  
+app/controllers/containers_controller.rb:53:in `change_status'
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:25:30 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+Completed 404 Not Found in 0ms (ActiveRecord: 1.2ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (The update action could not be found for the :set_container
+callback on ContainersController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.2.2.1) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:385:in `block in make_lambda'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:178:in `block in call'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:178:in `all?'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:178:in `call'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:559:in `block in invoke_before'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:559:in `each'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:559:in `invoke_before'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.2.2.1) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (7.2.2.1) lib/action_controller/metal/rescue.rb:27:in `process_action'
+actionpack (7.2.2.1) lib/action_controller/metal/instrumentation.rb:77:in `block in process_action'
+activesupport (7.2.2.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (7.2.2.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.2.2.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (7.2.2.1) lib/action_controller/metal/instrumentation.rb:76:in `process_action'
+actionpack (7.2.2.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.2.2.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (7.2.2.1) lib/abstract_controller/base.rb:163:in `process'
+actionpack (7.2.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (7.2.2.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (7.2.2.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (7.2.2.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (7.2.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (7.2.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (7.2.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (7.2.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (7.2.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (7.2.2.1) lib/action_dispatch/routing/route_set.rb:896:in `call'
+rack (3.1.10) lib/rack/etag.rb:29:in `call'
+rack (3.1.10) lib/rack/conditional_get.rb:43:in `call'
+rack (3.1.10) lib/rack/head.rb:15:in `call'
+activerecord (7.2.2.1) lib/active_record/migration.rb:674:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (7.2.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (7.2.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/request_id.rb:33:in `call'
+rack (3.1.10) lib/rack/runtime.rb:24:in `call'
+activesupport (7.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.10) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (7.2.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.0) lib/puma/configuration.rb:279:in `call'
+puma (6.6.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in `process_client'
+puma (6.6.0) lib/puma/server.rb:254:in `block in run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:27:20 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+Completed 404 Not Found in 0ms (ActiveRecord: 1.2ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (The update action could not be found for the :set_container
+callback on ContainersController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.2.2.1) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:385:in `block in make_lambda'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:178:in `block in call'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:178:in `all?'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:178:in `call'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:559:in `block in invoke_before'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:559:in `each'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:559:in `invoke_before'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.2.2.1) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (7.2.2.1) lib/action_controller/metal/rescue.rb:27:in `process_action'
+actionpack (7.2.2.1) lib/action_controller/metal/instrumentation.rb:77:in `block in process_action'
+activesupport (7.2.2.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (7.2.2.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.2.2.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (7.2.2.1) lib/action_controller/metal/instrumentation.rb:76:in `process_action'
+actionpack (7.2.2.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.2.2.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (7.2.2.1) lib/abstract_controller/base.rb:163:in `process'
+actionpack (7.2.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (7.2.2.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (7.2.2.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (7.2.2.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (7.2.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (7.2.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (7.2.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (7.2.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (7.2.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (7.2.2.1) lib/action_dispatch/routing/route_set.rb:896:in `call'
+rack (3.1.10) lib/rack/etag.rb:29:in `call'
+rack (3.1.10) lib/rack/conditional_get.rb:43:in `call'
+rack (3.1.10) lib/rack/head.rb:15:in `call'
+activerecord (7.2.2.1) lib/active_record/migration.rb:674:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (7.2.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (7.2.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (7.2.2.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/request_id.rb:33:in `call'
+rack (3.1.10) lib/rack/runtime.rb:24:in `call'
+activesupport (7.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.10) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.2.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (7.2.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.6.0) lib/puma/configuration.rb:279:in `call'
+puma (6.6.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in `process_client'
+puma (6.6.0) lib/puma/server.rb:254:in `block in run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:27:53 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:83:in `set_container'
+Completed 204 No Content in 8ms (ActiveRecord: 1.7ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:28:38 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.3ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:105:in `set_container'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 400 Bad Request in 9ms (Views: 1.4ms | ActiveRecord: 1.5ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:28:45 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:105:in `set_container'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 9ms (Views: 4.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:28:52 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:105:in `set_container'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 400 Bad Request in 3ms (Views: 0.5ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers/10" for ::1 at 2025-02-23 16:29:03 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:105:in `set_container'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:30:12 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:105:in `set_container'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 400 Bad Request in 4ms (Views: 0.5ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:30:18 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:105:in `set_container'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 9ms (Views: 0.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 4.8ms)
+
+
+Started GET "/containers/10" for ::1 at 2025-02-23 16:30:24 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:105:in `set_container'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/containers/10" for ::1 at 2025-02-23 16:31:02 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:107:in `set_container'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 12ms (Views: 1.8ms | ActiveRecord: 1.7ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:31:13 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:107:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mContainer Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "f26afa222cc9198e78ce8b8b4d468c4bbcb0d267b0c484ffecde6e5d076627df"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mContainer Update (0.4ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Stopped"], ["updated_at", "2025-02-23 19:31:13.386091"], ["id", 10]]
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mTRANSACTION (147.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 163ms (Views: 0.6ms | ActiveRecord: 149.6ms (3 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/containers/10" for ::1 at 2025-02-23 16:31:17 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:107:in `set_container'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/containers/10" for ::1 at 2025-02-23 16:31:34 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/containers/10"):
+  
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:31:42 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:107:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:61:in `change_status'
+  [1m[36mContainer Exists? (5.1ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "f26afa222cc9198e78ce8b8b4d468c4bbcb0d267b0c484ffecde6e5d076627df"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:61:in `change_status'
+  [1m[36mContainer Update (0.4ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Running"], ["updated_at", "2025-02-23 19:31:45.148646"], ["id", 10]]
+  ↳ app/controllers/containers_controller.rb:61:in `change_status'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:61:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 2652ms (Views: 1.8ms | ActiveRecord: 6.0ms (3 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/containers/10" for ::1 at 2025-02-23 16:32:10 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:107:in `set_container'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:32:28 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:107:in `set_container'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 400 Bad Request in 4ms (Views: 0.7ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers/10" for ::1 at 2025-02-23 16:32:33 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:107:in `set_container'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:32:44 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:107:in `set_container'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 400 Bad Request in 6ms (Views: 0.6ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 1.3ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:33:19 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:107:in `set_container'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mContainer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "f26afa222cc9198e78ce8b8b4d468c4bbcb0d267b0c484ffecde6e5d076627df"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mContainer Update (0.4ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Stopped"], ["updated_at", "2025-02-23 19:33:31.901986"], ["id", 10]]
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mTRANSACTION (166.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.62ms)
+Completed 200 OK in 11899ms (Views: 4.1ms | ActiveRecord: 178.2ms (3 queries, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/containers/10" for ::1 at 2025-02-23 16:33:46 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:107:in `set_container'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:33:56 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:107:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:61:in `change_status'
+  [1m[36mContainer Exists? (5.0ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "f26afa222cc9198e78ce8b8b4d468c4bbcb0d267b0c484ffecde6e5d076627df"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:61:in `change_status'
+  [1m[36mContainer Update (0.3ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Running"], ["updated_at", "2025-02-23 19:33:58.743331"], ["id", 10]]
+  ↳ app/controllers/containers_controller.rb:61:in `change_status'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:61:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.92ms)
+Completed 200 OK in 2224ms (Views: 3.4ms | ActiveRecord: 5.8ms (3 queries, 0 cached) | GC: 0.4ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:34:07 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:107:in `set_container'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mContainer Exists? (8.3ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "f26afa222cc9198e78ce8b8b4d468c4bbcb0d267b0c484ffecde6e5d076627df"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mContainer Update (0.3ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Stopped"], ["updated_at", "2025-02-23 19:34:19.460378"], ["id", 10]]
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (1.05ms)
+Completed 200 OK in 11574ms (Views: 2.8ms | ActiveRecord: 9.1ms (3 queries, 0 cached) | GC: 0.3ms)
+
+

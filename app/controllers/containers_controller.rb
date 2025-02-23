@@ -1,6 +1,6 @@
 class ContainersController < ApplicationController
-  before_action :set_container, only: %i[ show update destroy change_status]
-  before_action :set_docker_container, only: %i[destroy change_status]
+  before_action :set_container, only: %i[ show destroy change_status]
+  #before_action :set_docker_container, only: %i[destroy change_status]
   require 'docker'
 
 
@@ -17,6 +17,9 @@ class ContainersController < ApplicationController
   def show
     if @container
       render json: @container
+      docker_container = Docker::Container.get(@container.docker_id)
+
+      puts "================> #{docker_container} "
     else
       render json: {error: "Container not found"}
     end
@@ -44,47 +47,37 @@ class ContainersController < ApplicationController
 
  
 
-  def update
-
-    if @container.update(container_params)
-      render json: @container
-    else
-      render json: @container.errors, status: 422
-    end
-    
-  end
 
   def change_status
 
-    if params[:status].capitalize == "Start"
-      if check_container_status(@container)
-        render json: {error: "This container is already running!"}, status: 400
-        
-      else !check_container_status(@container)
-        @docker_container.start
-        @container[:status] = "Running"
-        render json: @container, status: 200
-      end
-      
-    elsif params[:status].capitalize == "Stop"
-      if check_container_status(@container)
-        @docker_container.stop
-        @container[:status] = "Stopped"
-        render json: @container, status: 200
-          
-      else !check_container_status(@container)
-        render json: {error: "This container is already stopped!"}, status: 400
-        
-      end
+    docker_container = Docker::Container.get(@container.docker_id)
 
+    if params[:status].capitalize == "Start"
+    if check_container_status(@container)
+    render json: {error: "This container is already running!"}, status: 400
+    else !check_container_status(@container)
+    docker_container.start
+    @container[:status] = "Running"
+    @container.save!
+    render json: @container, status: 200
+    end
+    elsif params[:status].capitalize == "Stop"
+    if check_container_status(@container)
+    docker_container.stop
+    @container[:status] = "Stopped"
+    @container.save!
+    render json: @container, status: 200
+    else !check_container_status(@container)
+    render json: {error: "This container is already stopped!"}, status: 400
+    end
 
     else 
-      render json: {error: "Invalid option!"}, status: 400
+    render json: {error: "Invalid option!"}, status: 400
 
     end
 
-    rescue Docker::Error::DockerError => e
-      render json: {error: e.message}, status: 422
+    
+
 
   end
   
@@ -119,7 +112,7 @@ class ContainersController < ApplicationController
   end
 
   def check_container_status(container)
-    container[:status].capitalize == "Start" ? true : false
+    container[:status].capitalize == "Running" ? true : false
     
   end
   

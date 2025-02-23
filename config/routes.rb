@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :containers
+  resources :containers, only: %i[index show create destroy]
 
-  patch '/containers/:id', to: 'container#change_status'
+  patch "/containers/:id", controller: "containers", action: :change_status
+
 
 end
