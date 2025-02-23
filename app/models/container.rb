@@ -12,4 +12,19 @@ class Container < ApplicationRecord
     )
   end
 
+  def self.start_container(docker_id)
+    docker_container = Docker::Container.get(docker_id)
+    docker_container.start
+  end
+
+  def self.stop_container(docker_id)
+    docker_container = Docker::Container.get(docker_id)
+    docker_container.stop
+  end
+
+  def self.delete_container(docker_id)
+    docker_container = Docker::Container.get(docker_id)
+    docker_container.delete(:force => true)
+  end
+
 end

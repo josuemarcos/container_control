@@ -1931,3 +1931,143 @@ Processing by ContainersController#change_status as */*
 Completed 200 OK in 11574ms (Views: 2.8ms | ActiveRecord: 9.1ms (3 queries, 0 cached) | GC: 0.3ms)
 
 
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:40:43 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (1.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:109:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:59:in `change_status'
+  [1m[36mContainer Exists? (5.5ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "f26afa222cc9198e78ce8b8b4d468c4bbcb0d267b0c484ffecde6e5d076627df"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:59:in `change_status'
+  [1m[36mContainer Update (0.4ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Running"], ["updated_at", "2025-02-23 19:40:45.753519"], ["id", 10]]
+  ↳ app/controllers/containers_controller.rb:59:in `change_status'
+  [1m[36mTRANSACTION (103.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:59:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.94ms)
+Completed 200 OK in 2059ms (Views: 4.8ms | ActiveRecord: 110.2ms (3 queries, 0 cached) | GC: 0.4ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:41:02 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"sto", "id"=>"10", "container"=>{"status"=>"sto"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:109:in `set_container'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 400 Bad Request in 4ms (Views: 0.9ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-02-23 16:41:08 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:109:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mContainer Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "f26afa222cc9198e78ce8b8b4d468c4bbcb0d267b0c484ffecde6e5d076627df"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mContainer Update (0.1ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Stopped"], ["updated_at", "2025-02-23 19:41:20.405186"], ["id", 10]]
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 11960ms (Views: 0.8ms | ActiveRecord: 3.0ms (3 queries, 0 cached) | GC: 0.1ms)
+
+
+Started DELETE "/containers/10" for ::1 at 2025-02-23 16:42:48 -0300
+Processing by ContainersController#destroy as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:108:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:89:in `destroy'
+  [1m[36mContainer Destroy (3.0ms)[0m  [1m[31mDELETE FROM "containers" WHERE "containers"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/containers_controller.rb:89:in `destroy'
+  [1m[36mTRANSACTION (57.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:89:in `destroy'
+Completed 204 No Content in 191ms (ActiveRecord: 62.3ms (2 queries, 0 cached) | GC: 5.3ms)
+
+
+Started GET "/containers" for ::1 at 2025-02-23 16:43:09 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"status"=>"stop", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:10:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.67ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started PATCH "/containers/9" for ::1 at 2025-02-23 16:47:02 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"9", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:108:in `set_container'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 400 Bad Request in 10ms (Views: 0.7ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started PATCH "/containers/9" for ::1 at 2025-02-23 16:47:08 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"stop", "id"=>"9", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:108:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mContainer Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "333cc17d14d2748d2443050663040aa1baf45159a76bf0fa5e6542773dc655cf"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mContainer Update (0.1ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Stopped"], ["updated_at", "2025-02-23 19:47:08.121170"], ["id", 9]]
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mTRANSACTION (52.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 68ms (Views: 1.6ms | ActiveRecord: 55.6ms (3 queries, 0 cached) | GC: 0.3ms)
+
+
+Started PATCH "/containers/9" for ::1 at 2025-02-23 16:47:12 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"9", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:108:in `set_container'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:59:in `change_status'
+  [1m[36mContainer Exists? (5.1ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "333cc17d14d2748d2443050663040aa1baf45159a76bf0fa5e6542773dc655cf"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:59:in `change_status'
+  [1m[36mContainer Update (0.4ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Running"], ["updated_at", "2025-02-23 19:47:14.073942"], ["id", 9]]
+  ↳ app/controllers/containers_controller.rb:59:in `change_status'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:59:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.87ms)
+Completed 200 OK in 1811ms (Views: 2.5ms | ActiveRecord: 6.1ms (3 queries, 0 cached) | GC: 0.9ms)
+
+
+Started PATCH "/containers/9" for ::1 at 2025-02-23 16:48:24 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"stop", "id"=>"9", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:108:in `set_container'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mContainer Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "333cc17d14d2748d2443050663040aa1baf45159a76bf0fa5e6542773dc655cf"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mContainer Update (0.4ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Stopped"], ["updated_at", "2025-02-23 19:48:36.718768"], ["id", 9]]
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+  [1m[36mTRANSACTION (115.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:68:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (1.04ms)
+Completed 200 OK in 11838ms (Views: 5.5ms | ActiveRecord: 124.5ms (3 queries, 0 cached) | GC: 0.2ms)
+
+
+Started DELETE "/containers/9" for ::1 at 2025-02-23 16:49:46 -0300
+Processing by ContainersController#destroy as */*
+  Parameters: {"status"=>"stop", "id"=>"9", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.3ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:108:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:89:in `destroy'
+  [1m[36mContainer Destroy (1.5ms)[0m  [1m[31mDELETE FROM "containers" WHERE "containers"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/containers_controller.rb:89:in `destroy'
+  [1m[36mTRANSACTION (337.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:89:in `destroy'
+Completed 204 No Content in 478ms (ActiveRecord: 341.3ms (2 queries, 0 cached) | GC: 0.5ms)
+
+
