@@ -904,3 +904,123 @@ Processing by ContainersController#index as */*
 Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
 
 
+Started POST "/containers" for ::1 at 2025-02-22 19:12:23 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubuntu", "container"=>{"name"=>"Container_5", "image"=>"ubuntu"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:32:in `create'
+  [1m[36mContainer Exists? (4.8ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? LIMIT ?[0m  [["docker_id", "decb43f348144b2a5237412c4f014e42f77e2bf1861b3fa6ac8d88ced9516b03"], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:32:in `create'
+  [1m[36mContainer Create (0.3ms)[0m  [1m[32mINSERT INTO "containers" ("name", "image", "status", "created_at", "updated_at", "docker_id") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Container_5"], ["image", "ubuntu"], ["status", "running"], ["created_at", "2025-02-22 22:12:24.559169"], ["updated_at", "2025-02-22 22:12:24.559169"], ["docker_id", "decb43f348144b2a5237412c4f014e42f77e2bf1861b3fa6ac8d88ced9516b03"]]
+  ↳ app/controllers/containers_controller.rb:32:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:32:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:38:in `create'
+  [1m[36mContainer Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "decb43f348144b2a5237412c4f014e42f77e2bf1861b3fa6ac8d88ced9516b03"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:38:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:38:in `create'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 814ms (Views: 0.8ms | ActiveRecord: 7.4ms (3 queries, 0 cached) | GC: 0.6ms)
+
+
+Started DELETE "/containers/7" for ::1 at 2025-02-22 19:13:12 -0300
+Processing by ContainersController#destroy as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubuntu", "id"=>"7", "container"=>{"name"=>"Container_5", "image"=>"ubuntu"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:77:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:61:in `destroy'
+  [1m[36mContainer Destroy (3.4ms)[0m  [1m[31mDELETE FROM "containers" WHERE "containers"."id" = ?[0m  [["id", 7]]
+  ↳ app/controllers/containers_controller.rb:61:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:61:in `destroy'
+Completed 204 No Content in 208ms (ActiveRecord: 3.8ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started POST "/containers/7" for ::1 at 2025-02-23 10:07:34 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/containers/7"):
+  
+Started POST "/containers" for ::1 at 2025-02-23 10:07:44 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubunt", "container"=>{"name"=>"Container_5", "image"=>"ubunt"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+  
+NoMethodError (undefined method `erros' for nil:NilClass):
+
+Causes:
+Docker::Error::NotFoundError ({"message":"No such image: ubunt:latest"}
+)
+Excon::Error::NotFound (Expected([200, 201, 202, 203, 204, 301, 304]) <=> Actual(404 Not Found)
+)
+  
+app/controllers/containers_controller.rb:38:in `rescue in create'
+app/controllers/containers_controller.rb:25:in `create'
+Started POST "/containers" for ::1 at 2025-02-23 10:08:38 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubunt", "container"=>{"name"=>"Container_5", "image"=>"ubunt"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass):
+
+Causes:
+Docker::Error::NotFoundError ({"message":"No such image: ubunt:latest"}
+)
+Excon::Error::NotFound (Expected([200, 201, 202, 203, 204, 301, 304]) <=> Actual(404 Not Found)
+)
+  
+app/controllers/containers_controller.rb:38:in `rescue in create'
+app/controllers/containers_controller.rb:25:in `create'
+Started POST "/containers" for ::1 at 2025-02-23 10:14:56 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubunt", "container"=>{"name"=>"Container_5", "image"=>"ubunt"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+Docker::Error::NotFoundError ({"message":"No such image: ubunt:latest"}
+):
+
+Causes:
+Excon::Error::NotFound (Expected([200, 201, 202, 203, 204, 301, 304]) <=> Actual(404 Not Found)
+)
+  
+app/controllers/containers_controller.rb:26:in `create'
+Started POST "/containers" for ::1 at 2025-02-23 10:18:07 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubunt", "container"=>{"name"=>"Container_5", "image"=>"ubunt"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Content in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers" for ::1 at 2025-02-23 10:18:20 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubunt", "container"=>{"name"=>"Container_5", "image"=>"ubunt"}}
+  [1m[36mContainer Load (1.0ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.89ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 5.0ms)
+
+
+Started POST "/containers" for ::1 at 2025-02-23 10:21:02 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubunt", "container"=>{"name"=>"Container_5", "image"=>"ubunt"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Content in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers" for ::1 at 2025-02-23 10:21:28 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"name"=>"Container_5", "image"=>"ubunt", "container"=>{"name"=>"Container_5", "image"=>"ubunt"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.85ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+

@@ -8,7 +8,7 @@ class ContainersController < ApplicationController
     if container
       render json: container
     else
-      render json: { error: "Nenhum container encontrado" }, status: 404
+      render json: { error: "No container found!" }, status: 404
     end
   end
 
@@ -35,14 +35,14 @@ class ContainersController < ApplicationController
       docker_id: container.id,
       status: 'running')
 
-    if @container.save!
-      render json: @container, status: 200
-      
-    else
-      render json: { error: "Container couldn't be created!" }, status: 422
-    end
+    rescue ActiveRecord::RecordInvalid => e
+      render json: {error: e.message}, status: 422
 
+    rescue Docker::Error::DockerError => e
+      render json: {error: e.message}, status: 422
   end
+
+ 
 
   def update
 
@@ -53,6 +53,9 @@ class ContainersController < ApplicationController
     end
     
   end
+
+
+
 
   def destroy
     if @container
