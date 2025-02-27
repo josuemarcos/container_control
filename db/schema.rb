@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_22_211131) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_27_012542) do
   create_table "containers", force: :cascade do |t|
     t.string "name"
     t.string "image"
@@ -18,5 +18,16 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_22_211131) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "docker_id"
+    t.integer "image_id"
+    t.index ["image_id"], name: "index_containers_on_image_id"
   end
+
+  create_table "images", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "code"
+  end
+
+  add_foreign_key "containers", "images"
 end
