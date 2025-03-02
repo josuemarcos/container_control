@@ -24,19 +24,20 @@ class ContainersController < ApplicationController
 
   
   def create
-    container = Container.create_docker_container(params[:name], params[:image])
+    image = Image.find(params[:image_id])
+    container = Container.create_docker_container(params[:name], image.name)
     @container = Container.create!(
-      name: params[:name],
-      image: params[:image],
-      docker_id: container.id,
-      status: 'stopped')
+    name: params[:name],
+    image: image,
+    docker_id: container.id,
+    status: 'stopped')
     render json: @container, status: 200
 
     rescue ActiveRecord::RecordInvalid => e
-      render json: {error: e.message}, status: 422
+    render json: {error: e.message}, status: 422
 
     rescue Docker::Error::DockerError => e
-      render json: {error: e.message}, status: 422
+    render json: {error: e.message}, status: 422
   end
 
  

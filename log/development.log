@@ -2170,3 +2170,371 @@ Migrating to RenameCodigoToCodeInImages (20250227012542)
   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250227012542') RETURNING "version"[0m
   [1m[36mTRANSACTION (122.1ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mImage Create (48.6ms)[0m  [1m[32mINSERT INTO "images" ("name", "created_at", "updated_at", "code") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "ubuntu:latest"], ["created_at", "2025-03-02 18:37:02.052926"], ["updated_at", "2025-03-02 18:37:02.052926"], ["code", "1"]]
+  [1m[36mTRANSACTION (113.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mImage Create (1.2ms)[0m  [1m[32mINSERT INTO "images" ("name", "created_at", "updated_at", "code") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "ubuntu:24.04"], ["created_at", "2025-03-02 18:39:02.724016"], ["updated_at", "2025-03-02 18:39:02.724016"], ["code", "2"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mImage Create (1.7ms)[0m  [1m[32mINSERT INTO "images" ("name", "created_at", "updated_at", "code") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "ubuntu:22.04"], ["created_at", "2025-03-02 18:40:14.936496"], ["updated_at", "2025-03-02 18:40:14.936496"], ["code", "3"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mImage Create (1.1ms)[0m  [1m[32mINSERT INTO "images" ("name", "created_at", "updated_at", "code") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "ubuntu:20.04"], ["created_at", "2025-03-02 18:41:41.493578"], ["updated_at", "2025-03-02 18:41:41.493578"], ["code", "4"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mImage Create (1.5ms)[0m  [1m[32mINSERT INTO "images" ("name", "created_at", "updated_at", "code") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "ubuntu:18.04 "], ["created_at", "2025-03-02 18:42:42.396034"], ["updated_at", "2025-03-02 18:42:42.396034"], ["code", "5"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2025-03-02 15:43:18 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.4ms | GC: 0.0ms)
+Completed 200 OK in 81ms (Views: 24.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/icon.png" for ::1 at 2025-03-02 15:43:19 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
+Started GET "/rails/info/routes" for ::1 at 2025-03-02 15:43:21 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [28 times] (Duration: 11.3ms | GC: 1.2ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 50.6ms | GC: 1.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 136.1ms | GC: 2.2ms)
+  Rendered layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb (Duration: 139.2ms | GC: 2.2ms)
+Completed 200 OK in 144ms (Views: 140.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.2ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2025-03-02 15:43:22 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/rails/info/routes" for ::1 at 2025-03-02 15:45:02 -0300
+  
+NameError (undefined local variable or method `index' for #<ActionDispatch::Routing::Mapper:0x00007fdd067f27c8 @set=#<ActionDispatch::Routing::RouteSet:0x00007fdd06929c40>, @draw_paths=[#<Pathname:/home/josue/.rvm/gems/ruby-3.2.0/gems/actionview-7.2.2.1/config/routes>, #<Pathname:/home/josue/.rvm/gems/ruby-3.2.0/gems/activestorage-7.2.2.1/config/routes>, #<Pathname:/home/josue/.rvm/gems/ruby-3.2.0/gems/actioncable-7.2.2.1/config/routes>, #<Pathname:/home/josue/.rvm/gems/ruby-3.2.0/gems/actionmailbox-7.2.2.1/config/routes>, #<Pathname:/home/josue/.rvm/gems/ruby-3.2.0/gems/actiontext-7.2.2.1/config/routes>, #<Pathname:/home/josue/Documentos/Programming/container_control/config/routes>, #<Pathname:/home/josue/Documentos/Programming/container_control/config/routes>], @scope=#<ActionDispatch::Routing::Mapper::Scope:0x00007fdd06a21198 @hash={:path_names=>{:new=>"new", :edit=>"edit"}}, @parent=#<ActionDispatch::Routing::Mapper::Scope:0x00007fdd0693d5d8 @hash=nil, @parent=nil, @scope_level=nil>, @scope_level=nil>, @concerns={}>):
+  
+config/routes.rb:4:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/rails/info/routes" for ::1 at 2025-03-02 15:45:11 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [29 times] (Duration: 11.9ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 16.5ms | GC: 0.0ms)
+  Rendered layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb (Duration: 17.2ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/images" for ::1 at 2025-03-02 15:51:01 -0300
+Processing by ImagesController#index as */*
+  Parameters: {"name"=>"Container_3", "image"=>"ubuntu", "status"=>"inactive"}
+  [1m[36mImage Load (2.0ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/controllers/images_controller.rb:6:in `index'
+No serializer found for resource: #<Image id: 1, name: "ubuntu:latest", created_at: "2025-03-02 18:37:02.052926000 +0000", updated_at: "2025-03-02 18:37:02.052926000 +0000", code: "1">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Image::ActiveRecord_Relation (0.77ms)
+Completed 200 OK in 43ms (Views: 32.5ms | ActiveRecord: 4.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers" for ::1 at 2025-03-02 15:59:46 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"name"=>"Container_3", "image"=>"ubuntu", "status"=>"inactive", "container"=>{"name"=>"Container_3", "image"=>"ubuntu", "status"=>"inactive"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 54ms (Views: 53.4ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/images" for ::1 at 2025-03-02 16:00:39 -0300
+Processing by ImagesController#index as */*
+  Parameters: {"name"=>"4", "image_id"=>"ubuntu", "image"=>{"name"=>"4"}}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/controllers/images_controller.rb:6:in `index'
+No serializer found for resource: #<Image id: 1, name: "ubuntu:latest", created_at: "2025-03-02 18:37:02.052926000 +0000", updated_at: "2025-03-02 18:37:02.052926000 +0000", code: "1">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Image::ActiveRecord_Relation (0.69ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started POST "/containers" for ::1 at 2025-03-02 16:01:15 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"4", "image_id"=>"3", "container"=>{"name"=>"4", "image_id"=>"3"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `image_id' for #<ContainersController:0x00000000013290>):
+  
+app/controllers/containers_controller.rb:27:in `create'
+Started GET "/containers" for ::1 at 2025-03-02 16:06:22 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"name"=>"4", "image_id"=>"3", "container"=>{"name"=>"4", "image_id"=>"3"}}
+  [1m[36mContainer Load (0.9ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.28ms)
+Completed 200 OK in 39ms (Views: 37.5ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/images" for ::1 at 2025-03-02 16:06:34 -0300
+Processing by ImagesController#index as */*
+  Parameters: {"name"=>"4", "image_id"=>"3", "image"=>{"name"=>"4"}}
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/controllers/images_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."image_id" = ?[0m  [["image_id", 1]]
+[active_model_serializers]   ↳ app/controllers/images_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."image_id" = ?[0m  [["image_id", 2]]
+[active_model_serializers]   ↳ app/controllers/images_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."image_id" = ?[0m  [["image_id", 3]]
+[active_model_serializers]   ↳ app/controllers/images_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."image_id" = ?[0m  [["image_id", 4]]
+[active_model_serializers]   ↳ app/controllers/images_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."image_id" = ?[0m  [["image_id", 5]]
+[active_model_serializers]   ↳ app/controllers/images_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (69.49ms)
+Completed 200 OK in 78ms (Views: 77.5ms | ActiveRecord: 0.6ms (6 queries, 0 cached) | GC: 4.8ms)
+
+
+Started POST "/containers" for ::1 at 2025-03-02 16:07:00 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"4", "image_id"=>"3", "container"=>{"name"=>"4", "image_id"=>"3"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `image_id' for #<ContainersController:0x00000000016a08>):
+  
+app/controllers/containers_controller.rb:27:in `create'
+Started POST "/containers" for ::1 at 2025-03-02 16:07:47 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_4", "image_id"=>"3", "container"=>{"name"=>"Container_4", "image_id"=>"3"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `image_id' for #<ContainersController:0x00000000016ad0>):
+  
+app/controllers/containers_controller.rb:27:in `create'
+Started POST "/containers" for ::1 at 2025-03-02 16:09:29 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_4", "image_id"=>"3", "container"=>{"name"=>"Container_4", "image_id"=>"3"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.9ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `image_id' for #<ContainersController:0x0000000001a0e0>):
+  
+app/controllers/containers_controller.rb:27:in `create'
+Started POST "/containers" for ::1 at 2025-03-02 16:09:59 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_4", "image_id"=>"3", "container"=>{"name"=>"Container_4", "image_id"=>"3"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 1.1ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+  
+NameError (undefined local variable or method `name' for #<ContainersController:0x0000000001d718>):
+  
+app/controllers/containers_controller.rb:27:in `create'
+Started POST "/containers" for ::1 at 2025-03-02 16:10:30 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_4", "image_id"=>"3", "container"=>{"name"=>"Container_4", "image_id"=>"3"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActionController::Parameters (0.08ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 1.1ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/containers" for ::1 at 2025-03-02 16:11:18 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_4", "image_id"=>"3", "container"=>{"name"=>"Container_4", "image_id"=>"3"}}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 1.5ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/containers" for ::1 at 2025-03-02 16:12:02 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_4", "image_id"=>"3", "container"=>{"name"=>"Container_4", "image_id"=>"3"}}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:27:in `create'
+[active_model_serializers]   [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."image_id" = ?[0m  [["image_id", 3]]
+[active_model_serializers]   ↳ app/controllers/containers_controller.rb:28:in `create'
+[active_model_serializers] Rendered ImageSerializer with ActiveModelSerializers::Adapter::Attributes (6.15ms)
+Completed 200 OK in 19ms (Views: 7.6ms | ActiveRecord: 2.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/containers" for ::1 at 2025-03-02 16:12:47 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_4", "image_id"=>"3", "container"=>{"name"=>"Container_4", "image_id"=>"3"}}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:27:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Content in 35ms (Views: 0.7ms | ActiveRecord: 2.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/containers" for ::1 at 2025-03-02 16:17:05 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_4", "image_id"=>"3", "container"=>{"name"=>"Container_4", "image_id"=>"3"}}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:27:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 422 Unprocessable Content in 9601ms (Views: 2.3ms | ActiveRecord: 4.5ms (1 query, 0 cached) | GC: 20.6ms)
+
+
+Started POST "/containers" for ::1 at 2025-03-02 16:17:33 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_9", "image_id"=>"3", "container"=>{"name"=>"Container_9", "image_id"=>"3"}}
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:27:in `create'
+Completed 500 Internal Server Error in 3861ms (ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Image(#95180) expected, got "ubuntu:22.04" which is an instance of String(#2680)):
+  
+app/controllers/containers_controller.rb:29:in `create'
+Started POST "/containers" for ::1 at 2025-03-02 16:21:47 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_9", "image_id"=>"3", "container"=>{"name"=>"Container_9", "image_id"=>"3"}}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:27:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Content in 2013ms (Views: 1.0ms | ActiveRecord: 2.1ms (1 query, 0 cached) | GC: 4.6ms)
+
+
+Started POST "/containers" for ::1 at 2025-03-02 16:22:01 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_10", "image_id"=>"3", "container"=>{"name"=>"Container_10", "image_id"=>"3"}}
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:27:in `create'
+Completed 500 Internal Server Error in 2823ms (ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Image(#102340) expected, got "ubuntu:22.04" which is an instance of String(#2680)):
+  
+app/controllers/containers_controller.rb:29:in `create'
+Started POST "/containers" for ::1 at 2025-03-02 16:23:07 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_10", "image_id"=>"3", "container"=>{"name"=>"Container_10", "image_id"=>"3"}}
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:27:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 422 Unprocessable Content in 1965ms (Views: 4.4ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started POST "/containers" for ::1 at 2025-03-02 16:23:16 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_11", "image_id"=>"3", "container"=>{"name"=>"Container_11", "image_id"=>"3"}}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:27:in `create'
+Completed 500 Internal Server Error in 3066ms (ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Image(#109460) expected, got "ubuntu:22.04" which is an instance of String(#2680)):
+  
+app/controllers/containers_controller.rb:29:in `create'
+Started POST "/containers" for ::1 at 2025-03-02 16:24:03 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_11", "image_id"=>"3", "container"=>{"name"=>"Container_11", "image_id"=>"3"}}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:27:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 422 Unprocessable Content in 2017ms (Views: 2.0ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/containers" for ::1 at 2025-03-02 16:24:09 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_12", "image_id"=>"3", "container"=>{"name"=>"Container_12", "image_id"=>"3"}}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:29:in `create'
+  [1m[36mContainer Exists? (8.0ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? LIMIT ?[0m  [["docker_id", "dcdb75b1e9461486698f316a2309467b3bf0dbf843bdaa7f1218ecd3205aa7da"], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:29:in `create'
+  [1m[36mContainer Create (0.5ms)[0m  [1m[32mINSERT INTO "containers" ("name", "image", "status", "created_at", "updated_at", "docker_id", "image_id") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Container_12"], ["image", nil], ["status", "stopped"], ["created_at", "2025-03-02 19:24:12.535805"], ["updated_at", "2025-03-02 19:24:12.535805"], ["docker_id", "dcdb75b1e9461486698f316a2309467b3bf0dbf843bdaa7f1218ecd3205aa7da"], ["image_id", 3]]
+  ↳ app/controllers/containers_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (77.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:29:in `create'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (4.38ms)
+Completed 200 OK in 3056ms (Views: 9.1ms | ActiveRecord: 86.9ms (3 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/containers" for ::1 at 2025-03-02 16:24:36 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"name"=>"Container_12", "image_id"=>"3", "container"=>{"name"=>"Container_12", "image_id"=>"3"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.57ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/containers" for ::1 at 2025-03-02 16:25:11 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"name"=>"Container_12", "image_id"=>"3", "container"=>{"name"=>"Container_12", "image_id"=>"3"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.43ms)
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 2.6ms (2 queries, 0 cached) | GC: 0.1ms)
+
+
+Started PATCH "/containers/9" for ::1 at 2025-03-02 16:27:03 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"9", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:96:in `set_container'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:53:in `change_status'
+  [1m[36mContainer Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "dcdb75b1e9461486698f316a2309467b3bf0dbf843bdaa7f1218ecd3205aa7da"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:53:in `change_status'
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:53:in `change_status'
+  [1m[36mContainer Update (0.4ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Running"], ["updated_at", "2025-03-02 19:27:06.782097"], ["id", 9]]
+  ↳ app/controllers/containers_controller.rb:53:in `change_status'
+  [1m[36mTRANSACTION (59.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:53:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (1.15ms)
+Completed 200 OK in 3076ms (Views: 2.6ms | ActiveRecord: 70.1ms (4 queries, 0 cached) | GC: 8.3ms)
+
+
+Started PATCH "/containers/9" for ::1 at 2025-03-02 16:27:39 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"stop", "id"=>"9", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:96:in `set_container'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:60:in `change_status'
+  [1m[36mContainer Exists? (11.7ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "dcdb75b1e9461486698f316a2309467b3bf0dbf843bdaa7f1218ecd3205aa7da"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:60:in `change_status'
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:60:in `change_status'
+  [1m[36mContainer Update (0.3ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Stopped"], ["updated_at", "2025-03-02 19:27:51.599139"], ["id", 9]]
+  ↳ app/controllers/containers_controller.rb:60:in `change_status'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:60:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (8.04ms)
+Completed 200 OK in 11672ms (Views: 9.7ms | ActiveRecord: 13.0ms (4 queries, 0 cached) | GC: 3.3ms)
+
+
+Started DELETE "/containers/9" for ::1 at 2025-03-02 16:28:16 -0300
+Processing by ContainersController#destroy as */*
+  Parameters: {"status"=>"stop", "id"=>"9", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:96:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:78:in `destroy'
+  [1m[36mContainer Destroy (3.2ms)[0m  [1m[31mDELETE FROM "containers" WHERE "containers"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/containers_controller.rb:78:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:78:in `destroy'
+Completed 204 No Content in 180ms (ActiveRecord: 3.5ms (2 queries, 0 cached) | GC: 0.5ms)
+
+

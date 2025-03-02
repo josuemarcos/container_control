@@ -1,3 +1,5 @@
 class ContainerSerializer < ActiveModel::Serializer
-  attributes :id, :docker_id, :name, :image, :status, :image_id
+  attributes :id, :docker_id, :name, :image, :status
+
+  belongs_to :image
 end
