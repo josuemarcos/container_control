@@ -2538,3 +2538,112 @@ Processing by ContainersController#destroy as */*
 Completed 204 No Content in 180ms (ActiveRecord: 3.5ms (2 queries, 0 cached) | GC: 0.5ms)
 
 
+Started GET "/images" for ::1 at 2025-03-02 16:30:04 -0300
+Processing by ImagesController#index as */*
+  Parameters: {"status"=>"stop", "image"=>{}}
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/controllers/images_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."image_id" = ?[0m  [["image_id", 1]]
+[active_model_serializers]   ↳ app/controllers/images_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."image_id" = ?[0m  [["image_id", 2]]
+[active_model_serializers]   ↳ app/controllers/images_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."image_id" = ?[0m  [["image_id", 3]]
+[active_model_serializers]   ↳ app/controllers/images_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."image_id" = ?[0m  [["image_id", 4]]
+[active_model_serializers]   ↳ app/controllers/images_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."image_id" = ?[0m  [["image_id", 5]]
+[active_model_serializers]   ↳ app/controllers/images_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.1ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.6ms (6 queries, 0 cached) | GC: 0.6ms)
+
+
+Started POST "/containers" for ::1 at 2025-03-02 16:32:03 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_13", "image_id"=>"2", "container"=>{"name"=>"Container_13", "image_id"=>"2"}}
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:29:in `create'
+  [1m[36mContainer Exists? (5.3ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? LIMIT ?[0m  [["docker_id", "f386f22baf84bd9be05efda4d7c23e14599d73b8bc4dcea61fee1fa87f6c5014"], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:29:in `create'
+  [1m[36mContainer Create (0.6ms)[0m  [1m[32mINSERT INTO "containers" ("name", "image", "status", "created_at", "updated_at", "docker_id", "image_id") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Container_13"], ["image", nil], ["status", "stopped"], ["created_at", "2025-03-02 19:32:06.286934"], ["updated_at", "2025-03-02 19:32:06.286934"], ["docker_id", "f386f22baf84bd9be05efda4d7c23e14599d73b8bc4dcea61fee1fa87f6c5014"], ["image_id", 2]]
+  ↳ app/controllers/containers_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:29:in `create'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (1.99ms)
+Completed 200 OK in 3076ms (Views: 4.4ms | ActiveRecord: 6.7ms (3 queries, 0 cached) | GC: 1.2ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-03-02 16:33:05 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"10", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:96:in `set_container'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:53:in `change_status'
+  [1m[36mContainer Exists? (12.6ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "f386f22baf84bd9be05efda4d7c23e14599d73b8bc4dcea61fee1fa87f6c5014"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:53:in `change_status'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:53:in `change_status'
+  [1m[36mContainer Update (0.4ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Running"], ["updated_at", "2025-03-02 19:33:08.069915"], ["id", 10]]
+  ↳ app/controllers/containers_controller.rb:53:in `change_status'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:53:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (1.62ms)
+Completed 200 OK in 2137ms (Views: 2.9ms | ActiveRecord: 13.8ms (4 queries, 0 cached) | GC: 1.0ms)
+
+
+Started PATCH "/containers/10" for ::1 at 2025-03-02 16:33:36 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:96:in `set_container'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:60:in `change_status'
+  [1m[36mContainer Exists? (10.3ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "f386f22baf84bd9be05efda4d7c23e14599d73b8bc4dcea61fee1fa87f6c5014"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:60:in `change_status'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:60:in `change_status'
+  [1m[36mContainer Update (0.4ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Stopped"], ["updated_at", "2025-03-02 19:33:48.219737"], ["id", 10]]
+  ↳ app/controllers/containers_controller.rb:60:in `change_status'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:60:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (2.4ms)
+Completed 200 OK in 11591ms (Views: 4.0ms | ActiveRecord: 13.0ms (4 queries, 0 cached) | GC: 2.5ms)
+
+
+Started DELETE "/containers/10" for ::1 at 2025-03-02 16:34:09 -0300
+Processing by ContainersController#destroy as */*
+  Parameters: {"status"=>"stop", "id"=>"10", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:96:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:78:in `destroy'
+  [1m[36mContainer Destroy (2.2ms)[0m  [1m[31mDELETE FROM "containers" WHERE "containers"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/containers_controller.rb:78:in `destroy'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:78:in `destroy'
+Completed 204 No Content in 172ms (ActiveRecord: 3.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveCodeFromImage (20250304172419)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aimages" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "code" varchar)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aimages" ("id","name","created_at","updated_at","code")
+                     SELECT "id","name","created_at","updated_at","code" FROM "images"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "images"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "images" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "images" ("id","name","created_at","updated_at")
+                     SELECT "id","name","created_at","updated_at" FROM "aimages"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aimages"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250304172419') RETURNING "version"[0m
+  [1m[36mTRANSACTION (106.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
