@@ -2647,3 +2647,170 @@ Migrating to RemoveCodeFromImage (20250304172419)
   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250304172419') RETURNING "version"[0m
   [1m[36mTRANSACTION (106.6ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2025-03-04 14:32:26 -0300
+  
+NameError (uninitialized constant Rswag):
+  
+config/routes.rb:2:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/favicon.ico" for ::1 at 2025-03-04 14:32:27 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/rails/info/routes" for ::1 at 2025-03-04 14:33:07 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [32 times] (Duration: 7.4ms | GC: 0.0ms)
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [0 times] (Duration: 0.0ms | GC: 0.0ms)
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [0 times] (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 28.6ms | GC: 0.4ms)
+  Rendered layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb (Duration: 29.6ms | GC: 0.4ms)
+Completed 200 OK in 48ms (Views: 33.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/api-docs" for ::1 at 2025-03-04 14:33:27 -0300
+Started GET "/api-docs/index.html" for ::1 at 2025-03-04 14:33:27 -0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-03-04 14:33:27 -0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-03-04 14:33:27 -0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-03-04 14:33:27 -0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-03-04 14:33:28 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api-docs/v1/swagger.yaml"):
+  
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-03-04 14:33:28 -0300
+Started GET "/" for ::1 at 2025-03-05 22:21:03 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 200 OK in 74ms (Views: 16.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/icon.png" for ::1 at 2025-03-05 22:21:03 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
+Started GET "/rails/info/routes" for ::1 at 2025-03-05 22:21:06 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [32 times] (Duration: 17.6ms | GC: 0.0ms)
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [0 times] (Duration: 0.0ms | GC: 0.0ms)
+  Rendered collection of /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [0 times] (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/actionpack-7.2.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 27.1ms | GC: 0.0ms)
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 65.7ms | GC: 0.0ms)
+  Rendered layout /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/layouts/application.html.erb (Duration: 66.7ms | GC: 0.0ms)
+Completed 200 OK in 71ms (Views: 68.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api-docs" for ::1 at 2025-03-05 22:21:08 -0300
+Started GET "/api-docs/index.html" for ::1 at 2025-03-05 22:21:08 -0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-03-05 22:21:08 -0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-03-05 22:21:09 -0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-03-05 22:21:09 -0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-03-05 22:21:09 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api-docs/v1/swagger.yaml"):
+  
+Started GET "/api-docs" for ::1 at 2025-03-05 22:21:27 -0300
+Started GET "/api-docs/index.html" for ::1 at 2025-03-05 22:21:27 -0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-03-05 22:21:27 -0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-03-05 22:21:27 -0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-03-05 22:21:27 -0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-03-05 22:21:27 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api-docs/v1/swagger.yaml"):
+  
+Started GET "/api-docs/index.html" for ::1 at 2025-03-05 22:22:46 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-03-05 22:22:46 -0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-03-05 22:22:46 -0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-03-05 22:22:46 -0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-03-05 22:22:46 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api-docs/v1/swagger.yaml"):
+  
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-03-05 22:22:46 -0300
+Started GET "/" for ::1 at 2025-03-05 22:25:51 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 12ms (Views: 5.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/api-docs" for ::1 at 2025-03-05 22:25:56 -0300
+Started GET "/api-docs/index.html" for ::1 at 2025-03-05 22:25:56 -0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-03-05 22:25:56 -0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-03-05 22:25:56 -0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-03-05 22:25:56 -0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-03-05 22:25:56 -0300
+Started GET "/" for ::1 at 2025-03-07 22:07:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/josue/.rvm/gems/ruby-3.2.0/gems/railties-7.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 101ms (Views: 34.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/icon.png" for ::1 at 2025-03-07 22:07:06 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
+Started GET "/api-docs" for ::1 at 2025-03-07 22:07:09 -0300
+Started GET "/api-docs/index.html" for ::1 at 2025-03-07 22:07:09 -0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-03-07 22:07:09 -0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-03-07 22:07:09 -0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-03-07 22:07:09 -0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-03-07 22:07:09 -0300
+Started GET "/api-docs/index.html" for ::1 at 2025-03-07 22:12:26 -0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-03-07 22:12:26 -0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-03-07 22:12:26 -0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-03-07 22:12:26 -0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-03-07 22:12:27 -0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-03-07 22:12:27 -0300
+Started GET "/api-docs/index.html" for ::1 at 2025-03-07 22:13:18 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-03-07 22:13:18 -0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-03-07 22:13:18 -0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-03-07 22:13:18 -0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-03-07 22:13:18 -0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-03-07 22:13:18 -0300
+Started GET "/api-docs/index.html" for ::1 at 2025-03-07 22:22:15 -0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-03-07 22:22:15 -0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-03-07 22:22:15 -0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-03-07 22:22:15 -0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-03-07 22:22:15 -0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-03-07 22:22:15 -0300
+Started GET "/api-docs/index.html" for ::1 at 2025-03-07 22:28:04 -0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-03-07 22:28:04 -0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-03-07 22:28:04 -0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-03-07 22:28:04 -0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-03-07 22:28:04 -0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-03-07 22:28:04 -0300
+Started GET "/api-docs/index.html" for ::1 at 2025-03-07 22:30:44 -0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-03-07 22:30:44 -0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-03-07 22:30:44 -0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-03-07 22:30:44 -0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-03-07 22:30:45 -0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-03-07 22:30:45 -0300
+Started GET "/api-docs/index.html" for ::1 at 2025-03-07 22:31:41 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-03-07 22:31:41 -0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-03-07 22:31:41 -0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-03-07 22:31:41 -0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-03-07 22:31:41 -0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-03-07 22:31:41 -0300
+Started GET "/api-docs/index.html" for ::1 at 2025-03-07 22:32:13 -0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-03-07 22:32:13 -0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-03-07 22:32:13 -0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-03-07 22:32:13 -0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-03-07 22:32:13 -0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-03-07 22:32:13 -0300

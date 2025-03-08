@@ -48,3 +48,7 @@ group :development, :test do
 end
 
 
+
+gem "rswag", "~> 2.16"
+
+gem 'rspec-rails'
