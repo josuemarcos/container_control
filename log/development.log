@@ -2814,3 +2814,247 @@ Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-03-07 22
 Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-03-07 22:32:13 -0300
 Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-03-07 22:32:13 -0300
 Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-03-07 22:32:13 -0300
+Started GET "/containers" for ::1 at 2025-03-07 23:17:01 -0300
+  
+SyntaxError (/home/josue/Documentos/Programming/container_control/app/models/container.rb:42: else without rescue is useless
+    else
+    ^~~~
+/home/josue/Documentos/Programming/container_control/app/models/container.rb:53: syntax error, unexpected `end'):
+  
+app/models/container.rb:42: else without rescue is useless
+app/models/container.rb:53: syntax error, unexpected `end'
+Started GET "/containers" for ::1 at 2025-03-07 23:18:45 -0300
+  
+SyntaxError (/home/josue/Documentos/Programming/container_control/app/models/container.rb:42: else without rescue is useless
+    else
+    ^~~~
+/home/josue/Documentos/Programming/container_control/app/models/container.rb:58: syntax error, unexpected `end'):
+  
+app/models/container.rb:42: else without rescue is useless
+app/models/container.rb:58: syntax error, unexpected `end'
+Started GET "/containers" for ::1 at 2025-03-07 23:20:34 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/josue/Documentos/Programming/container_control/app/models/container.rb:42: else without rescue is useless
+    else
+    ^~~~
+/home/josue/Documentos/Programming/container_control/app/models/container.rb:56: syntax error, unexpected `end'):
+  
+app/models/container.rb:42: else without rescue is useless
+app/models/container.rb:56: syntax error, unexpected `end'
+Started GET "/containers" for ::1 at 2025-03-08 20:11:37 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/josue/Documentos/Programming/container_control/app/models/container.rb:25: syntax error, unexpected ':', expecting `end' or dummy end
+        return json: {error: "This container is a...
+                   ^
+/home/josue/Documentos/Programming/container_control/app/models/container.rb:31: syntax error, unexpected ':', expecting `end' or dummy end
+        return json: container, status: 200
+                   ^
+/home/josue/Documentos/Programming/container_control/app/models/container.rb:39: syntax error, unexpected ':', expecting `end' or dummy end
+        return json: container, status: 200
+                   ^
+/home/josue/Documentos/Programming/container_control/app/models/container.rb:41: syntax error, unexpected ':', expecting `end' or dummy end
+        return json: {error: "This container is a...
+                   ^
+/home/josue/Documentos/Programming/container_control/app/models/container.rb:44: syntax error, unexpected ':', expecting `end' or dummy end
+      return json: {error: "Invalid option!"}, ...
+                 ^
+):
+  
+app/models/container.rb:25: syntax error, unexpected ':', expecting `end' or dummy end
+app/models/container.rb:31: syntax error, unexpected ':', expecting `end' or dummy end
+app/models/container.rb:39: syntax error, unexpected ':', expecting `end' or dummy end
+app/models/container.rb:41: syntax error, unexpected ':', expecting `end' or dummy end
+app/models/container.rb:44: syntax error, unexpected ':', expecting `end' or dummy end
+Started GET "/containers" for ::1 at 2025-03-08 20:33:43 -0300
+Processing by ContainersController#index as */*
+  Parameters: {"status"=>"start", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (45.3ms)[0m  [1m[34mSELECT "containers".* FROM "containers"[0m
+  ↳ app/controllers/containers_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (86.22ms)
+Completed 200 OK in 310ms (Views: 196.9ms | ActiveRecord: 48.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/containers" for ::1 at 2025-03-08 20:34:30 -0300
+Processing by ContainersController#create as */*
+  Parameters: {"name"=>"Container_16", "image_id"=>"1", "container"=>{"name"=>"Container_16", "image_id"=>"1"}}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/containers_controller.rb:29:in `create'
+  [1m[36mContainer Exists? (7.8ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? LIMIT ?[0m  [["docker_id", "002e015c060c689613999dbccb4ad33b1a9cd2d03a3cc679f3a08ee10bdf0526"], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:29:in `create'
+  [1m[36mContainer Create (0.5ms)[0m  [1m[32mINSERT INTO "containers" ("name", "image", "status", "created_at", "updated_at", "docker_id", "image_id") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Container_16"], ["image", nil], ["status", "stopped"], ["created_at", "2025-03-08 23:34:34.496197"], ["updated_at", "2025-03-08 23:34:34.496197"], ["docker_id", "002e015c060c689613999dbccb4ad33b1a9cd2d03a3cc679f3a08ee10bdf0526"], ["image_id", 1]]
+  ↳ app/controllers/containers_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (62.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/containers_controller.rb:29:in `create'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (5.71ms)
+Completed 200 OK in 3843ms (Views: 8.4ms | ActiveRecord: 71.3ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/containers/11" for ::1 at 2025-03-08 20:34:44 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"name"=>"Container_16", "image_id"=>"1", "id"=>"11", "container"=>{"name"=>"Container_16", "image_id"=>"1"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:79:in `set_container'
+[active_model_serializers]   [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/containers_controller.rb:18:in `show'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (98.6ms)
+Completed 200 OK in 104ms (Views: 99.3ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/containers/11" for ::1 at 2025-03-08 20:36:26 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"11", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:79:in `set_container'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/container.rb:29:in `change_status'
+  [1m[36mContainer Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "002e015c060c689613999dbccb4ad33b1a9cd2d03a3cc679f3a08ee10bdf0526"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/models/container.rb:29:in `change_status'
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/container.rb:29:in `change_status'
+  [1m[36mContainer Update (0.2ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Running"], ["updated_at", "2025-03-08 23:36:29.461007"], ["id", 11]]
+  ↳ app/models/container.rb:29:in `change_status'
+  [1m[36mTRANSACTION (125.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/container.rb:29:in `change_status'
+Completed 500 Internal Server Error in 2704ms (ActiveRecord: 130.8ms (4 queries, 0 cached) | GC: 0.9ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/containers_controller.rb:50:in `change_status'
+Started PATCH "/containers/11" for ::1 at 2025-03-08 20:39:45 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"11", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:79:in `set_container'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/containers_controller.rb:50:in `change_status'
+Started PATCH "/containers/11" for ::1 at 2025-03-08 20:40:41 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"11", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.3ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:79:in `set_container'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/containers_controller.rb:50:in `change_status'
+Started GET "/containers/11" for ::1 at 2025-03-08 20:40:56 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ContainersController#show as */*
+  Parameters: {"status"=>"start", "id"=>"11", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (3.8ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:79:in `set_container'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/containers_controller.rb:18:in `show'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (29.04ms)
+Completed 200 OK in 110ms (Views: 35.1ms | ActiveRecord: 8.2ms (2 queries, 0 cached) | GC: 2.9ms)
+
+
+Started PATCH "/containers/11" for ::1 at 2025-03-08 20:41:26 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"stop", "id"=>"11", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.1ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:79:in `set_container'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/container.rb:37:in `change_status'
+  [1m[36mContainer Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "002e015c060c689613999dbccb4ad33b1a9cd2d03a3cc679f3a08ee10bdf0526"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/models/container.rb:37:in `change_status'
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/container.rb:37:in `change_status'
+  [1m[36mContainer Update (0.3ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Stopped"], ["updated_at", "2025-03-08 23:41:38.478688"], ["id", 11]]
+  ↳ app/models/container.rb:37:in `change_status'
+  [1m[36mTRANSACTION (61.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/container.rb:37:in `change_status'
+Completed 500 Internal Server Error in 11757ms (ActiveRecord: 69.1ms (4 queries, 0 cached) | GC: 0.8ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/containers_controller.rb:50:in `change_status'
+Started GET "/containers/11" for ::1 at 2025-03-08 20:53:52 -0300
+  
+SyntaxError (/home/josue/Documentos/Programming/container_control/app/models/container.rb:30: syntax error, unexpected ',', expecting =>
+        return  {container, status: 200}
+                          ^
+/home/josue/Documentos/Programming/container_control/app/models/container.rb:38: syntax error, unexpected ',', expecting =>
+        return  {container, status: 200}
+                          ^
+):
+  
+app/models/container.rb:30: syntax error, unexpected ',', expecting =>
+app/models/container.rb:38: syntax error, unexpected ',', expecting =>
+Started GET "/containers/11" for ::1 at 2025-03-08 20:54:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/josue/Documentos/Programming/container_control/app/models/container.rb:30: syntax error, unexpected ',', expecting =>
+        return  {container, status: 200}
+                          ^
+/home/josue/Documentos/Programming/container_control/app/models/container.rb:38: syntax error, unexpected ',', expecting =>
+        return  {container, status: 200}
+                          ^
+):
+  
+app/models/container.rb:30: syntax error, unexpected ',', expecting =>
+app/models/container.rb:38: syntax error, unexpected ',', expecting =>
+Started GET "/containers/11" for ::1 at 2025-03-08 20:55:41 -0300
+Processing by ContainersController#show as */*
+  Parameters: {"status"=>"stop", "id"=>"11", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.3ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:79:in `set_container'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/containers_controller.rb:18:in `show'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (13.97ms)
+Completed 200 OK in 41ms (Views: 19.3ms | ActiveRecord: 3.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/containers/11" for ::1 at 2025-03-08 20:55:55 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"start", "id"=>"11", "container"=>{"status"=>"start"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:79:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/container.rb:29:in `change_status'
+  [1m[36mContainer Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "002e015c060c689613999dbccb4ad33b1a9cd2d03a3cc679f3a08ee10bdf0526"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/models/container.rb:29:in `change_status'
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/container.rb:29:in `change_status'
+  [1m[36mContainer Update (0.7ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Running"], ["updated_at", "2025-03-08 23:55:57.780391"], ["id", 11]]
+  ↳ app/models/container.rb:29:in `change_status'
+  [1m[36mTRANSACTION (99.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/container.rb:29:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (1.44ms)
+Completed 200 OK in 2494ms (Views: 2.9ms | ActiveRecord: 110.7ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/containers/11" for ::1 at 2025-03-08 20:56:03 -0300
+Processing by ContainersController#change_status as */*
+  Parameters: {"status"=>"stop", "id"=>"11", "container"=>{"status"=>"stop"}}
+  [1m[36mContainer Load (0.2ms)[0m  [1m[34mSELECT "containers".* FROM "containers" WHERE "containers"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/containers_controller.rb:79:in `set_container'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/container.rb:37:in `change_status'
+  [1m[36mContainer Exists? (5.6ms)[0m  [1m[34mSELECT 1 AS one FROM "containers" WHERE "containers"."docker_id" = ? AND "containers"."id" != ? LIMIT ?[0m  [["docker_id", "002e015c060c689613999dbccb4ad33b1a9cd2d03a3cc679f3a08ee10bdf0526"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/models/container.rb:37:in `change_status'
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/container.rb:37:in `change_status'
+  [1m[36mContainer Update (0.2ms)[0m  [1m[33mUPDATE "containers" SET "status" = ?, "updated_at" = ? WHERE "containers"."id" = ?[0m  [["status", "Stopped"], ["updated_at", "2025-03-08 23:56:15.330548"], ["id", 11]]
+  ↳ app/models/container.rb:37:in `change_status'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/container.rb:37:in `change_status'
+[active_model_serializers] Rendered ContainerSerializer with ActiveModelSerializers::Adapter::Attributes (0.74ms)
+Completed 200 OK in 11600ms (Views: 11.8ms | ActiveRecord: 4.1ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
