@@ -1,6 +1,7 @@
 class Container < ApplicationRecord
   validates :docker_id, presence: true, uniqueness: true
   validates :image, presence: true
+  validates :image_id, presence: true, inclusion: {in: Image.pluck(:id)} #Assure that the container will only be created with an image saved in the DB
   validates :status, presence: true
   belongs_to :image
 
@@ -44,9 +45,10 @@ class Container < ApplicationRecord
     end
   end
   
-  def self.delete_container(docker_id)
+  def self.delete_container(container, docker_id)
     docker_container = Docker::Container.get(docker_id)
     docker_container.delete(:force => true)
+    container.destroy
   end
 
   def self.check_container_status(container)

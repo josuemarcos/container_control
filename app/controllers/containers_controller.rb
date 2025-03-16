@@ -1,40 +1,35 @@
 class ContainersController < ApplicationController
   before_action :set_container, only: %i[ show destroy change_status]
   require 'docker'
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  rescue_from ActiveRecord::RecordInvalid, with: :invalid
 
 
   def index
     container = Container.all
-    if container
-      render json: container
-    else
+    if container.empty?
       render json: { error: "No container found!" }, status: 404
+    else
+      render json: container
     end
   end
 
 
   def show
-    if @container
-      render json: @container
-      docker_container = Docker::Container.get(@container.docker_id)
-    else
-      render json: {error: "Container not found"}
-    end
+    render json: @container
+    docker_container = Docker::Container.get(@container.docker_id)
   end
 
   
   def create
     image = Image.find(params[:image_id])
     container = Container.create_docker_container(params[:name], image.name)
-    @container = Container.create!(
+    @container = Container.create(
     name: params[:name],
     image: image,
     docker_id: container.id,
     status: 'stopped')
     render json: @container, status: 200
-
-    rescue ActiveRecord::RecordInvalid => e
-    render json: {error: e.message}, status: 422
 
     rescue Docker::Error::DockerError => e
     render json: {error: e.message}, status: 422
@@ -49,22 +44,18 @@ class ContainersController < ApplicationController
   
     render json: result[:container] || { error: result[:error] }, status: result[:status]
   
-  rescue Docker::Error::DockerError => e
-    render json: { error: e.message }, status: 422
+    rescue Docker::Error::DockerError => e
+      render json: { error: e.message }, status: 422
 
   end
   
 
   def destroy
-    if @container
-      Container.delete_container(@container.docker_id)
-      @container.destroy!
-    else
-      render json: {error: "Container not found!"}, status: 404
-    end
+    Container.delete_container(@container, @container.docker_id)
+    render status: 204
 
     rescue Docker::Error::DockerError => e
-      render json: {error: e.message}, status: 422
+    render json: {error: e.message}, status: 422
   end
 
 
@@ -78,6 +69,16 @@ class ContainersController < ApplicationController
   def set_container
     @container = Container.find(params[:id])
   end
+
+  def invalid(error)
+    render json: {error: error.message}, status: 422
+  end
+
+  def not_found(error)
+    render json: {error: error.message}, status: 404
+    
+  end
+  
 
   
   
